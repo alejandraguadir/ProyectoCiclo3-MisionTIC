@@ -2,27 +2,27 @@
 <html>
     <head>
         <meta charset="UTF-8">
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-            <!-- Latest compiled and minified CSS -->
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
-            <!-- jQuery library -->
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-            <!-- Popper JS -->
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 
-            <!-- Latest compiled JavaScript -->
-            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <script src="js/index.js"></script>
         <link href="css/menu.css" rel="stylesheet">
         <title>Registro - Productos</title>
     </head>
-    
-    
-        
+
+
+
     <body>
-         <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+        <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
             <div class="container">
                 <div class="container-fluid">
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -39,7 +39,7 @@
                                 <a class="nav-link active" aria-current="page" href="index.html">Pagina principal</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="tableUsers.html">Lista de Usuarios</a>
+                                <a class="nav-link active" aria-current="page" href="tableUsers.html">Lista de productos</a>
                             </li>
 
                         </ul>
@@ -48,62 +48,60 @@
                     </div>
                 </div>
                 <button type="button" class="btn btn-link"><a href="login.html">Salir</a></button>
-                
+
             </div>
         </nav>
         <main class="p-4 d-flex justify-content-center">
-            
-                             
+
+
             <div class="card sizeDiv">
 
                 <div class="card-body">
-                    <h2> Crear usuario</h2>
-                   
-                    <form id="form-register" class="pb-4">
-                        
-                        <div class="form-group">
-                            <label for="input-username">Nombre de usuario</label>
-                            <input type="text" class="form-control" id="input-username" placeholder="Nombre de usuario" required>
+                    <h2> Formulario - Registro de productos</h2>
+
+                    <form id="form-register" class="pb-2">
+
+
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label for="input-numerodeparte">Número de parte</label>
+                                <input type="text" class="form-control" id="input-numerodeparte" placeholder="LY456" required>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="input-nombreproducto">Nombre producto</label>
+                                <input type="text" class="form-control" id="input-nombreproducto" placeholder="Nombre producto" required>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="input-categoria">Categoria</label>
+                                <input type="text" class="form-control" id="input-categoria" placeholder="Categoria" required>
+                            </div>
                         </div>
+                        
+                        
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="input-contrasena">Contraseña</label>
-                                <input type="password" class="form-control" id="input-contrasena" placeholder="Contraseña" required>
+                                <label for="input-cantidad">Cantidad</label>
+                                <input type="text" class="form-control" id="input-cantidad" placeholder="Cantidad" required>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="input-contrasena-repeat">Repetir contraseña</label>
-                                <input type="password" class="form-control" id="input-contrasena-repeat" placeholder="Repetir contraseña" required>
+                                <label for="input-precio">Precio</label>
+                                <input type="text" class="form-control" id="input-precio" placeholder="$" required>
                             </div>
-                        </div>
-                         <div class="form-group">
-                            <label for="input-cedula">Cedula</label>
-                            <input type="text" class="form-control" id="input-cedula" placeholder="Cedula" required>
+                            
                         </div>
                         <div class="form-group">
-                            <label for="input-nombre">Nombre</label>
-                            <input type="text" class="form-control" id="input-nombre" placeholder="Nombre" required>
-                        </div>
+                                <label for="input-fechaingreso">Fecha ingreso</label>
+                                <input type="text" class="form-control" id="input-categoria" placeholder="dd/mm/aaaa" required>
+                            </div>
                         <div class="form-group">
-                            <label for="input-apellidos">Apellidos</label>
-                            <input type="text" class="form-control" id="input-apellidos" placeholder="Apellidos" required>
+                            <label for="input-observaciones">Observaciones</label>
+                            <input type="text" class="form-control" id="input-observaciones" placeholder="Observaciones" required>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="input-email">Email</label>
-                            <input type="text" class="form-control" id="input-email" placeholder="Email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="input-fecha_nac">Fecha de nacimiento</label>
-                            <input type="text" class="form-control" id="fecha_nac" placeholder="dd/mm/aaaa" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="input-rol">Rol</label>
-                            <input type="text" class="form-control" id="input-rol" placeholder="Rol" required>
-                        </div>
-                        
-                      
+                       
+
+
                         <input class="btn btn-primary" type="reset" value="Reset">
-                        <input type="submit" class="btn btn-primary " id="register-btn" value="Registrar usuario" />
+                        <input type="submit" class="btn btn-primary " id="register-btn" value="Registrar Producto" />
                     </form>
                     <div id="register-error" class="alert alert-danger d-none" role="alert"></div>
                     <a href="addUsers.html">¿Ya tienes cuenta? Iniciar sesión</a>
@@ -118,6 +116,6 @@
 
                     </div>
 
-        </footer>
-    </body>
-</html>
+                    </footer>
+                    </body>
+                    </html>
