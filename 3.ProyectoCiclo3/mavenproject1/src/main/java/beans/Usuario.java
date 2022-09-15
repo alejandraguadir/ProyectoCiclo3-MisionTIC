@@ -5,7 +5,8 @@ import java.sql.Date;
 
 public class Usuario {    
      
-	private String password;
+	private String username;
+        private String password;
 	private String cedula;
 	private String nombre;
 	private String apellido;
