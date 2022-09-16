@@ -26,6 +26,8 @@ public class OperacionesDB {
         }
 
     }
+    
+    
 
     public static void listarPelicula() {
         DBConnection con = new DBConnection();

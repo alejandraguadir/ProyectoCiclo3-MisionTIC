@@ -9,16 +9,18 @@ import java.sql.Statement;//Para identidicar sentencias SQL
 public class OperacionesDB {
 
     public static void main(String[] args) {
-        listarProductos();
+        actualizarProductos("'BLI357'", 150090);  //llamo la funcion para ejecutar el codigo y que se traiga los datos de la BD
+        listarProductos();  //llamo la funcion para ejecutar el codigo y que se traiga los datos de la BD
 
     }
-    public static void actualizarProductos(double precio, String num_parte) {
+    public static void actualizarProductos(String num_parte, double precio) {
         DBConnection con = new DBConnection();
-        String sql = "UPDATE  producto SET  precio = '" + precio + "' WHERE num_parte = " + num_parte; //Sentencia que se guarda en el atributo sql
+        String sql = "UPDATE  producto SET  precio ='" + precio + "'WHERE num_parte =" + num_parte; //Sentencia que se guarda en el atributo sql
         try {
 
             Statement st = con.getConnection().createStatement();
-            st.execute(sql);
+            //Aqui esta linea esta diferente, le falta el Update (st.executeUpdate(sql);)
+            st.executeUpdate(sql);
 
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
@@ -27,9 +29,6 @@ public class OperacionesDB {
         }
 
     }
-
-
-    
 
     public static void listarProductos() {
         DBConnection con = new DBConnection();
@@ -54,7 +53,7 @@ public class OperacionesDB {
                 System.out.println(producto.toString());
 
             }
-
+            //Aqui esta linea no esta
             st.executeQuery(sql);
 
         } catch (Exception ex) {
