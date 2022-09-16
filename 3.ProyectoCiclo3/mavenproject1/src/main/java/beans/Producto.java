@@ -1,18 +1,18 @@
-
 package beans;
+
 import java.sql.Date;
 
 public class Producto {
-        private String num_parte;
-	private String nombre;
-	private String  categoria;
-	private int cantidad;
-	private String descripcion;
-	private Date fecha_in;
-        private double precio;
-        
-            //Consstructor
 
+    private String num_parte;
+    private String nombre;
+    private String categoria;
+    private int cantidad;
+    private String descripcion;
+    private Date fecha_in;
+    private double precio;
+
+    //Consstructor
     public Producto(String num_parte, String nombre, String categoria, int cantidad, String descripcion, Date fecha_in, double precio) {
         this.num_parte = num_parte;
         this.nombre = nombre;
@@ -83,8 +83,5 @@ public class Producto {
     public String toString() {
         return "Producto{" + "num_parte=" + num_parte + ", nombre=" + nombre + ", categoria=" + categoria + ", cantidad=" + cantidad + ", descripcion=" + descripcion + ", fecha_in=" + fecha_in + ", precio=" + precio + '}';
     }
-        
-    
-    
 
 }

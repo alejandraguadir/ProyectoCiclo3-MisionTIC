@@ -2,21 +2,19 @@ package beans;
 
 import java.sql.Date;
 
+public class Usuario {
 
-public class Usuario {    
-     
-	private String username;
-        private String password;
-	private String cedula;
-	private String nombre;
-	private String apellido;
-	private String correo;
-	private Date fecha_nac;
-	private int celular;
-	private String rol;
-        
-        //Constructor
+    private String username;
+    private String password;
+    private String cedula;
+    private String nombre;
+    private String apellido;
+    private String correo;
+    private Date fecha_nac;
+    private int celular;
+    private String rol;
 
+    //Constructor
     public Usuario(String password, String cedula, String nombre, String apellido, String correo, Date fecha_nac, int celular, String rol) {
         this.password = password;
         this.cedula = cedula;
@@ -27,10 +25,8 @@ public class Usuario {
         this.celular = celular;
         this.rol = rol;
     }
-        
-        
-    //Consultores y modificadores
 
+    //Consultores y modificadores
     public String getPassword() {
         return password;
     }
@@ -94,14 +90,11 @@ public class Usuario {
     public void setRol(String rol) {
         this.rol = rol;
     }
-    
-    //ToString
 
+    //ToString
     @Override
     public String toString() {
         return "Usuario{" + "password=" + password + ", cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido + ", correo=" + correo + ", fecha_nac=" + fecha_nac + ", celular=" + celular + ", rol=" + rol + '}';
     }
-    
-    
-    
+
 }

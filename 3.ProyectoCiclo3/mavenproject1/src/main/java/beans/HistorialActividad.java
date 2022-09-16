@@ -3,11 +3,12 @@ package beans;
 import java.sql.Date;
 
 public class HistorialActividad {
-        private int id;
-	private Date fecha;	
-	private String proceso;
-	private String num_parte;
-	private String username;
+
+    private int id;
+    private Date fecha;
+    private String proceso;
+    private String num_parte;
+    private String username;
 
     public HistorialActividad(int id, Date fecha, String proceso, String num_parte, String username) {
         this.id = id;
@@ -61,8 +62,5 @@ public class HistorialActividad {
     public String toString() {
         return "HistorialdeActividad{" + "id=" + id + ", fecha=" + fecha + ", proceso=" + proceso + ", num_parte=" + num_parte + ", username=" + username + '}';
     }
-        
-        
 
-    
 }

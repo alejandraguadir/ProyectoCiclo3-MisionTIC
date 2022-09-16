@@ -13,6 +13,7 @@ public class OperacionesDB {
         listarProductos();  //llamo la funcion para ejecutar el codigo y que se traiga los datos de la BD
 
     }
+
     public static void actualizarProductos(String num_parte, double precio) {
         DBConnection con = new DBConnection();
         String sql = "UPDATE  producto SET  precio ='" + precio + "'WHERE num_parte =" + num_parte; //Sentencia que se guarda en el atributo sql
