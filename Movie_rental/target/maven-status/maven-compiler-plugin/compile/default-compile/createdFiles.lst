@@ -1,6 +1,6 @@
+servlets\PruebaServelt.class
 beans\Pelicula.class
 beans\Usuario.class
-servelts\PruebaServelt.class
 controller\UsuarioController.class
 beans\Alquiler.class
 controller\IUsuarioController.class
