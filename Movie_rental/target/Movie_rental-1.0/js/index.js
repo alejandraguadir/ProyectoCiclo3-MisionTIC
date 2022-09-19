@@ -5,8 +5,13 @@ $(document).ready(function () {
         event.preventDefault();
         autenticarUsuario();
     });
+    
+    $("#form-register").submit(function(event){
+         event.preventDefault();
+        registrarUsuario();
+        
 
-
+});
 
 });
 
@@ -55,7 +60,7 @@ function registrarUsuario() {
                 username: username,
                 contrasena: contrasena,
                 nombre: nombre,
-                apellidos: apellidos,
+                apellido: apellido,
                 email: email,
                 saldo: saldo,
                 premium: premium,
@@ -81,5 +86,6 @@ function registrarUsuario() {
 
     }
 }
+
 
 
