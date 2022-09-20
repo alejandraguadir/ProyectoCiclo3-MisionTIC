@@ -15,7 +15,9 @@ public class Usuario {
     private String rol;
 
     //Constructor
-    public Usuario(String password, String cedula, String nombre, String apellido, String correo, Date fecha_nac, int celular, String rol) {
+
+    public Usuario(String username, String password, String cedula, String nombre, String apellido, String correo, Date fecha_nac, int celular, String rol) {
+        this.username = username;
         this.password = password;
         this.cedula = cedula;
         this.nombre = nombre;
@@ -26,7 +28,14 @@ public class Usuario {
         this.rol = rol;
     }
 
-    //Consultores y modificadores
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     public String getPassword() {
         return password;
     }
@@ -91,10 +100,9 @@ public class Usuario {
         this.rol = rol;
     }
 
-    //ToString
     @Override
     public String toString() {
-        return "Usuario{" + "password=" + password + ", cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido + ", correo=" + correo + ", fecha_nac=" + fecha_nac + ", celular=" + celular + ", rol=" + rol + '}';
+        return "Usuario{" + "username=" + username + ", password=" + password + ", cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido + ", correo=" + correo + ", fecha_nac=" + fecha_nac + ", celular=" + celular + ", rol=" + rol + '}';
     }
-
+    
 }
