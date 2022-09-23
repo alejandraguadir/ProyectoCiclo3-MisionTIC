@@ -17,8 +17,8 @@ $(document).ready(function () {
 
 function autenticarUsuario() {
 
-    let username = $("#usuario").val();
-    let password = $("#password").val();
+    let username = $("#usuario").val(); //lo que hay en el front (login.html) pongalo en el back
+    let password = $("#contrasena").val(); //lo que hay en el front (login.html) pongalo en el back
 
     $.ajax({
         type: "GET",
@@ -39,4 +39,53 @@ function autenticarUsuario() {
             }
         }
     });
+}
+// FUNCION DE REGISTRAR
+function registrarUsuario() {
+
+    let username = $("#input-username").val();
+    let password = $("#input-contrasena").val();
+    let passwordConfirmacion = $("#input-contrasena-repeat").val();
+    let cedula = $("#input-cedula").val();
+    let nombre = $("#input-nombre").val();
+    let apellido = $("#input-apellidos").val();
+    let correo = $("#input-email").val();
+    let fecha_nac = $("#input-fecha_nac").val();
+    let celular = $("#input-celular").val();
+    let rol = $("#input-rol").val();
+
+    if (password == passwordConfirmacion) {
+
+        $.ajax({
+            type: "GET",
+            dataType: "html",
+            url: "./ServletUsuarioRegister",
+            data: $.param({
+                username: username,
+                password: password,
+                cedula: cedula,
+                nombre: nombre,
+                apellido: apellido,
+                correo: correo,
+                fecha_nac: fecha_nac,
+                celular: celular,
+                rol: rol
+            }),
+            success: function (result) {
+                let parsedResult = JSON.parse(result);
+
+                if (parsedResult != false) {
+                    $("#register-error").addClass("d-none");
+                    let username = parsedResult['username'];
+                    document.location.href = "home.html?username=" + username;
+                } else {
+                    $("#register-error").removeClass("d-none");
+                    $("#register-error").html("Error en el registro del usuario");
+                }
+            }
+        });
+    } else {
+        $("#register-error").removeClass("d-none");
+        $("#register-error").html("Las contraseñas no coinciden");
+    }
 }
