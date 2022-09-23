@@ -1,2 +1,3 @@
 # ProyectoCiclo3-MisionTIC
-### Proyecto --- desarrollando el front
+###Proyecto --- frontend full
+### Proyecto --- desarrollando el backend
