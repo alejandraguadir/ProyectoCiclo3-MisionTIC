@@ -41,13 +41,13 @@ public class ServletUsuarioRegister extends HttpServlet {
         String password = request.getParameter("password");
         String cedula = request.getParameter("cedula");
         String nombre = request.getParameter("nombre");
-        String apellido = request.getParameter("apellido");
+        String apellidos = request.getParameter("apellidos");
         String correo = request.getParameter("correo");
         Date fecha_nac = Date.valueOf(request.getParameter("fecha_nac"));
         Integer celular = Integer.parseInt(request.getParameter("celular"));
         String rol = request.getParameter("rol");
 
-        String result = usuario.addUsers(username, password, cedula, nombre, apellido, correo, fecha_nac, celular, rol);
+        String result = usuario.addUsers(username, password, cedula, nombre, apellidos, correo, fecha_nac, celular, rol);
 
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();

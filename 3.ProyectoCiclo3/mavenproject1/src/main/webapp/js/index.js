@@ -17,8 +17,8 @@ $(document).ready(function () {
 
 function autenticarUsuario() {
 
-    let username = $("#usuario").val(); //lo que hay en el front (login.html) pongalo en el back
-    let password = $("#contrasena").val(); //lo que hay en el front (login.html) pongalo en el back
+    let username = $("#username").val(); //lo que hay en el front (login.html) pongalo en el back
+    let password = $("#password").val(); //lo que hay en el front (login.html) pongalo en el back
 
     $.ajax({
         type: "GET",
@@ -48,7 +48,7 @@ function registrarUsuario() {
     let passwordConfirmacion = $("#input-contrasena-repeat").val();
     let cedula = $("#input-cedula").val();
     let nombre = $("#input-nombre").val();
-    let apellido = $("#input-apellidos").val();
+    let apellidos = $("#input-apellidos").val();
     let correo = $("#input-email").val();
     let fecha_nac = $("#input-fecha_nac").val();
     let celular = $("#input-celular").val();
@@ -65,7 +65,7 @@ function registrarUsuario() {
                 password: password,
                 cedula: cedula,
                 nombre: nombre,
-                apellido: apellido,
+                apellidos: apellidos,
                 correo: correo,
                 fecha_nac: fecha_nac,
                 celular: celular,
@@ -89,3 +89,54 @@ function registrarUsuario() {
         $("#register-error").html("Las contraseñas no coinciden");
     }
 }
+
+//FUNCION AGREGAR PRODUCTOS
+
+
+function registrarProductos() {
+
+    let num_parte = $("#input-numerodeparte").val();
+    let nombre = $("#input-nombreproducto").val();
+    let categoria = $("#input-categoria").val();
+    let cantidad = $("#input-cantidad").val();
+    let descripcion = $("#input-descripcion").val();
+    let fecha_in = $("#input-fechaingreso").val();
+    let precio = $("#input-precio").val();
+ 
+   
+    
+
+    if (precio < 0) {
+
+        $.ajax({
+            type: "GET",
+            dataType: "html",
+            url: "./ServletProductoRegister",
+            data: $.param({
+                num_parte: num_parte,
+                nombre: nombre,
+                categoria: categoria,
+                cantidad: cantidad,
+                descripcion: descripcion,
+                fecha_in: fecha_in,
+                precio:precio
+            }),
+            success: function (result) {
+                let parsedResult = JSON.parse(result);
+
+                if (parsedResult != false) {
+                    $("#register-error").addClass("d-none");
+                    let num_parte = parsedResult['num_parte'];
+                    document.location.href = "home.html?username=" + num_parte;
+                } else {
+                    $("#register-error").removeClass("d-none");
+                    $("#register-error").html("Error en el registro del usuario");
+                }
+            }
+        });
+    } else {
+        $("#register-error").removeClass("d-none");
+        $("#register-error").html("Ingresa un precio correcto");
+    }
+}
+

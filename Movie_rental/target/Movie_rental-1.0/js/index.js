@@ -5,13 +5,13 @@ $(document).ready(function () {
         event.preventDefault();
         autenticarUsuario();
     });
-    
-    $("#form-register").submit(function(event){
-         event.preventDefault();
-        registrarUsuario();
-        
 
-});
+    $("#form-register").submit(function (event) {
+
+        event.preventDefault();
+        registrarUsuario();
+    });
+
 
 });
 
@@ -40,18 +40,19 @@ function autenticarUsuario() {
         }
     });
 }
-
 function registrarUsuario() {
+
     let username = $("#input-username").val();
     let contrasena = $("#input-contrasena").val();
-    let contrasenaConfirmacion = $("#input-contrasena-repeat ").val();
+    let contrasenaConfirmacion = $("#input-contrasena-repeat").val();
     let nombre = $("#input-nombre").val();
-    let apellido = $("#input-apellidos").val();
+    let apellidos = $("#input-apellidos").val();
     let email = $("#input-email").val();
     let saldo = $("#input-saldo").val();
     let premium = $("#input-premium").prop("checked");
 
     if (contrasena == contrasenaConfirmacion) {
+
         $.ajax({
             type: "GET",
             dataType: "html",
@@ -60,32 +61,26 @@ function registrarUsuario() {
                 username: username,
                 contrasena: contrasena,
                 nombre: nombre,
-                apellido: apellido,
+                apellidos: apellidos,
                 email: email,
                 saldo: saldo,
-                premium: premium,
-
+                premium: premium
             }),
             success: function (result) {
-                let parasedResult = JSON.parse(result);
+                let parsedResult = JSON.parse(result);
 
                 if (parsedResult != false) {
                     $("#register-error").addClass("d-none");
                     let username = parsedResult['username'];
                     document.location.href = "home.html?username=" + username;
-
                 } else {
                     $("#register-error").removeClass("d-none");
-                    $("#register-error").html("Error en el registro de usuario")
+                    $("#register-error").html("Error en el registro del usuario");
                 }
             }
         });
     } else {
         $("#register-error").removeClass("d-none");
-        $("#register-error").html("las contrasenas no coinciden")
-
+        $("#register-error").html("Las contraseñas no coinciden");
     }
 }
-
-
-
