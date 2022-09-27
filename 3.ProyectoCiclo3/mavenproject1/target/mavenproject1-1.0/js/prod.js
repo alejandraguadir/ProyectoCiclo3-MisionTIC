@@ -7,7 +7,7 @@ $(document).ready(function () {
         $('[data-toggle="tooltip"]').tooltip();
     });
 
-    getProducto().then(function () {       
+    getUsuario().then(function () {       
         
 
         getProductos(false, "ASC");

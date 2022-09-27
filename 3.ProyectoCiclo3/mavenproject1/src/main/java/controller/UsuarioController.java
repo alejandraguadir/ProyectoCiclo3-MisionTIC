@@ -79,22 +79,19 @@ public class UsuarioController implements IUsuarioController {
 
     }
 
-    
-    
-    
     @Override
     public String listar(boolean ordenar, String orden) {
 
         Gson gson = new Gson();
 
         DBConnection con = new DBConnection();
-        String sql = "Select * from pelicula";
+        String sql = "Select * from usuario";
 
         if (ordenar == true) {
-            sql += " order by genero " + orden;
+            sql += " order by rol " + orden;
         }
 
-        List<String> Usuario = new ArrayList<String>();
+        List<String> usuarios = new ArrayList<String>();
 
         try {
 
@@ -102,9 +99,9 @@ public class UsuarioController implements IUsuarioController {
             ResultSet rs = st.executeQuery(sql);
 
             while (rs.next()) {
-                
+
                 String username = rs.getString("username");
-                 String password = rs.getString("password");
+                String password = rs.getString("password");
                 String cedula = rs.getString("cedula");
                 String nombre = rs.getString("nombre");
                 String apellidos = rs.getString("apellido");
@@ -113,9 +110,9 @@ public class UsuarioController implements IUsuarioController {
                 Integer celular = rs.getInt("celular");
                 String rol = rs.getString("rol");
 
-                Usuario usuario
-                        = new Usuario(username, password, cedula, nombre, apellidos, correo, fecha_nac, celular, rol);
-                return gson.toJson(usuario);
+                Usuario usuario = new Usuario(username, password, cedula, nombre, apellidos, correo, fecha_nac, celular, rol);
+
+                usuarios.add(gson.toJson(usuario));
 
             }
         } catch (Exception ex) {
@@ -124,8 +121,7 @@ public class UsuarioController implements IUsuarioController {
             con.desconectar();
         }
 
-        return gson.toJson(Usuario);
+        return gson.toJson(usuarios);
 
     }
-
 }

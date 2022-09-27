@@ -1,4 +1,3 @@
-
 //Trae el usuario del login 
 var username = new URL(location.href).searchParams.get("username");
 var user;
@@ -11,18 +10,16 @@ $(document).ready(function () {
 
     getUsuario().then(function () {
 
-        $("#mi-perfil-btn").attr("href", "home.html?username=" + username);
 
 
+        getUsuario(false, "ASC");
 
-        getUsuarios(false, "ASC");
-
-        
+        $("#ordenar-rol").click(ordenarUsuarios);
     });
 });
 
 
-function getUsuarios(ordenar, orden) {
+function getPeliculas(ordenar, orden) {
 
     $.ajax({
         type: "GET",
@@ -38,13 +35,11 @@ function getUsuarios(ordenar, orden) {
             if (parsedResult != false) {
                 mostrarUsuarios(parsedResult);
             } else {
-                console.log("Error recuperando los datos de los usuarios");
+                console.log("Error recuperando los datos de las peliculas");
             }
         }
     });
 }
-
-
 function mostrarUsuarios(usuario) {
 
     let contenido = "";
@@ -52,21 +47,24 @@ function mostrarUsuarios(usuario) {
     $.each(usuario, function (index, usuario) {
 
         usuario = JSON.parse(usuario);
-        
 
-            contenido += '<tr><th scope="row">' + usuario.id + '</th>' +
-                     '<td>' + usuario.username + '</td>' +
-                    '<td>' + usuario.password + '</td>' +
-                    '<td>' + usuario.cedula + '</td>' +
-                    '<td>' + usuario.nombre + '</td>' +
-                    '<td>' + usuario.apellidos + '</td>' +
-                    '<td>' + usuario.correo + '</td>' +
-                    '<td>' + usuario.fecha_nac + '</td>' +
-                    '<td>' + usuario.celular + '</td>' +
-                    '<td>' + usuario.rol + '</td>' +
-                    '</tr>'
 
-        }
-    );
-    $("#Usuarios-tbody").html(contenido);
+
+
+        contenido += '<tr><th scope="row">' + usuario.username + '</th>' +
+                '<td>' + usuario.password + '</td>' +
+                '<td>' + usuario.cedula + '</td>' +
+                '<td>' + usuario.nombre + '</td>' +
+                '<td>' + usuario.apellido + '</td>' +
+                '<td>' + usuario.correo + '</td>' +
+                '<td>' + usuario.fecha_nac + '</td>' +
+                '<td>' + usuario.celular + '</td>' +
+                '<td>' + usuario.rol + '</td>' +
+                 '<td>'+ "r"+ '</td>' +
+                '</tr>'
+
+
+    });
+    $("#peliculas-tbody").html(contenido);
 }
+
