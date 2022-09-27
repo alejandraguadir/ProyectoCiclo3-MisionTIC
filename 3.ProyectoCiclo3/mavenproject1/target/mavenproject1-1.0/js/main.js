@@ -8,18 +8,18 @@ $(document).ready(function () {
         $('[data-toggle="tooltip"]').tooltip();
     });
 
-    getUsuario().then(function () {
+    getUsuarios().then(function () {
 
 
 
-        getUsuario(false, "ASC");
+        getUsuarios(false, "ASC");
 
         $("#ordenar-rol").click(ordenarUsuarios);
     });
 });
 
 
-function getPeliculas(ordenar, orden) {
+function getUsuarios(ordenar, orden) {
 
     $.ajax({
         type: "GET",
@@ -35,7 +35,7 @@ function getPeliculas(ordenar, orden) {
             if (parsedResult != false) {
                 mostrarUsuarios(parsedResult);
             } else {
-                console.log("Error recuperando los datos de las peliculas");
+                console.log("Error recuperando los datos de usuarios");
             }
         }
     });
@@ -60,11 +60,33 @@ function mostrarUsuarios(usuario) {
                 '<td>' + usuario.fecha_nac + '</td>' +
                 '<td>' + usuario.celular + '</td>' +
                 '<td>' + usuario.rol + '</td>' +
-                 '<td>'+ "r"+ '</td>' +
-                '</tr>'
+                '<td><button onclick="actualizarUsuario(' + usuario.username  +  ');" class="btn btn-link" ';
+            
+
+            contenido += '>Actualizar</button><button onclick="actualizarUsuario(' + usuario.username  +  ');" class="btn btn-success" ';
+            
+
+            contenido += '>Eliminar</button></td></tr>'
 
 
     });
-    $("#peliculas-tbody").html(contenido);
+    $("#Usuarios-tbody").html(contenido);
+}
+
+function ordenarUsuarios() {
+
+    if ($("#icono-ordenar").hasClass("fa-sort")) {
+        getPeliculas(true, "ASC");
+        $("#icono-ordenar").removeClass("fa-sort");
+        $("#icono-ordenar").addClass("fa-sort-down");
+    } else if ($("#icono-ordenar").hasClass("fa-sort-down")) {
+        getPeliculas(true, "DESC");
+        $("#icono-ordenar").removeClass("fa-sort-down");
+        $("#icono-ordenar").addClass("fa-sort-up");
+    } else if ($("#icono-ordenar").hasClass("fa-sort-up")) {
+        getPeliculas(false, "ASC");
+        $("#icono-ordenar").removeClass("fa-sort-up");
+        $("#icono-ordenar").addClass("fa-sort");
+    }
 }
 
