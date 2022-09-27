@@ -1,4 +1,3 @@
-
 //Trae el usuario del login 
 var username = new URL(location.href).searchParams.get("username");
 var user;
@@ -113,67 +112,3 @@ function mostrarPeliculas(peliculas) {
     $("#peliculas-tbody").html(contenido);
 }
 
-function ordenarPeliculas() {
-
-    if ($("#icono-ordenar").hasClass("fa-sort")) {
-        getPeliculas(true, "ASC");
-        $("#icono-ordenar").removeClass("fa-sort");
-        $("#icono-ordenar").addClass("fa-sort-down");
-    } else if ($("#icono-ordenar").hasClass("fa-sort-down")) {
-        getPeliculas(true, "DESC");
-        $("#icono-ordenar").removeClass("fa-sort-down");
-        $("#icono-ordenar").addClass("fa-sort-up");
-    } else if ($("#icono-ordenar").hasClass("fa-sort-up")) {
-        getPeliculas(false, "ASC");
-        $("#icono-ordenar").removeClass("fa-sort-up");
-        $("#icono-ordenar").addClass("fa-sort");
-    }
-}
-function alquilarPelicula(id, precio) {
-
-    $.ajax({
-        type: "GET",
-        dataType: "html",
-        url: "./ServletPeliculaAlquilar",
-        data: $.param({
-            id: id,
-            username: username
-
-        }),
-        success: function (result) {
-            let parsedResult = JSON.parse(result);
-
-            if (parsedResult != false) {
-                restarDinero(precio).then(function () {
-                    location.reload();
-                })
-            } else {
-                console.log("Error en la reserva de la película");
-            }
-        }
-    });
-}
-
-
-async function restarDinero(precio) {
-
-    await $.ajax({
-        type: "GET",
-        dataType: "html",
-        url: "./ServletUsuarioRestarDinero",
-        data: $.param({
-            username: username,
-            saldo: parseFloat(user.saldo - precio)
-
-        }),
-        success: function (result) {
-            let parsedResult = JSON.parse(result);
-
-            if (parsedResult != false) {
-                console.log("Saldo actualizado");
-            } else {
-                console.log("Error en el proceso de pago");
-            }
-        }
-    });
-}

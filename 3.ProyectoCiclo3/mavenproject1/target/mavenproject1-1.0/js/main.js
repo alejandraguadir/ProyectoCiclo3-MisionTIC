@@ -54,7 +54,8 @@ function mostrarUsuarios(usuario) {
         usuario = JSON.parse(usuario);
         
 
-            contenido += '<tr><th scope="row">' + usuario.username + '</th>' +
+            contenido += '<tr><th scope="row">' + usuario.id + '</th>' +
+                     '<td>' + usuario.username + '</td>' +
                     '<td>' + usuario.password + '</td>' +
                     '<td>' + usuario.cedula + '</td>' +
                     '<td>' + usuario.nombre + '</td>' +

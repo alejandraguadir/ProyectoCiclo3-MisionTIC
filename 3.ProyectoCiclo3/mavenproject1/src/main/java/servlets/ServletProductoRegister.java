@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import controller.UsuarioController;
+import controller.ProductoController;
 import java.sql.Date;
 
 /**
@@ -35,19 +35,20 @@ public class ServletProductoRegister extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {
 
-        UsuarioController usuario = new UsuarioController();
+        ProductoController producto = new ProductoController();
 
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        String cedula = request.getParameter("cedula");
+        String num_parte = request.getParameter("num_parte");
         String nombre = request.getParameter("nombre");
-        String apellidos = request.getParameter("apellidos");
-        String correo = request.getParameter("correo");
-        Date fecha_nac = Date.valueOf(request.getParameter("fecha_nac"));
-        Integer celular = Integer.parseInt(request.getParameter("celular"));
-        String rol = request.getParameter("rol");
+        String categoria = request.getParameter("categoria");
+        Integer cantidad = Integer.parseInt(request.getParameter("cantidad"));
+        String descripcion = request.getParameter("descripcion");
+        Date fecha_in = Date.valueOf(request.getParameter("fecha_in"));
+        double precio = Double.parseDouble(request.getParameter("precio"));      
+        
+        
 
-        String result = usuario.addUsers(username, password, cedula, nombre, apellidos, correo, fecha_nac, celular, rol);
+
+        String result = producto.addProducto(num_parte, nombre, categoria, cantidad, descripcion, fecha_in, precio);
 
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();

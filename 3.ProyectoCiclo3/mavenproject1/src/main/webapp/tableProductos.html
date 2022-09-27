@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
+         <meta charset="UTF-8">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -14,9 +14,15 @@
 
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <script src="js/index.js"></script>
+
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+              integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+              crossorigin="anonymous" />
+
+        <script src="js/prod.js"></script>
         <link href="css/menu.css" rel="stylesheet">
-        <title>Registro - Usuario</title>
+        <title>tableProductos</title>
     </head>
 
 
@@ -76,32 +82,17 @@
                                 <th scope="col"># de parte</th>
                                 <th scope="col">Nombre-producto</th>
                                 <th scope="col">Categoría</th>
-                                <th scope="col">Descripción</th>
                                 <th scope="col">Cantidad</th>
+                                <th scope="col">Descripción</th>
                                 <th scope="col">Fecha de ingreso</th>
                                 <th scope="col">Precio $</th>
-                                <th scope="col">Observaciones</th>
                                 <th scope="col">Acción</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <th>LY180</th>
-                                <td>Laptop dell</td>
-                                <td>Portatil</td>
-                                <td>N</td>
-                                <td>12</td>
-                                <td>23/07/2020</td>
-                                <td>1200000</td>
-                                <td>Ninguna</td>
-                                <td>                            
-                                    <button type="button" class="btn btn-link">Actualizar</button>
-                                    <button type="button" class="btn btn-link">Eliminar</button>
-                                </td>
-
-                            </tr>
+                        <tbody id="Productos-tbody">
 
                         </tbody>
+
                     </table>
 
 

@@ -26,7 +26,7 @@ function registrarProducto() {
    
     
 
-    if (precio = 0) {
+    if (precio != 0) {
 
         $.ajax({
             type: "GET",
@@ -39,24 +39,24 @@ function registrarProducto() {
                 cantidad: cantidad,
                 descripcion: descripcion,
                 fecha_in: fecha_in,
-                precio:precio
+                precio: precio
             }),
-            success: function (result) {
+      success: function (result) {
                 let parsedResult = JSON.parse(result);
 
                 if (parsedResult != false) {
                     $("#register-error").addClass("d-none");
-                    let num_parte = parsedResult['num_parte'];
-                    document.location.href = "tableProductos.html?username=" + num_parte;
+                    let username = parsedResult['username'];
+                    document.location.href = "tableProductos.html?username=" + username;
                 } else {
                     $("#register-error").removeClass("d-none");
-                    $("#register-error").html("Error en el registro de producto");
+                    $("#register-error").html("Error en el registro del producto");
                 }
             }
         });
     } else {
         $("#register-error").removeClass("d-none");
-        $("#register-error").html("Ingresa un precio correcto");
+        $("#register-error").html("Las contraseñas no coinciden");
     }
 }
 
