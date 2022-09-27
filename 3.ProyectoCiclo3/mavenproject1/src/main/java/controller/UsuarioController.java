@@ -124,4 +124,36 @@ public class UsuarioController implements IUsuarioController {
         return gson.toJson(usuarios);
 
     }
+    
+    
+    
+    
+    @Override
+    public String modificar(String username, String nuevaPassword,
+            String nuevaCedula, String nuevoNombre, String nuevosApellidos,
+            String nuevoCorreo, Date nuevaFecha_nac, Integer nuevoCelular, String nuevoRol) {
+
+        DBConnection con = new DBConnection();
+
+        String sql = "Update usuario set password = '" + nuevaPassword
+                + "', cedula = '" + nuevaCedula + "', "
+                + "nombre = '" + nuevoNombre + "', apellido = '"
+                + nuevosApellidos + "', correo = " + nuevoCorreo + "', fecha_nac = '"+ nuevaFecha_nac + "', celular = '"+ nuevoCelular+"', rol'" + nuevoRol;
+
+        
+        try {
+
+            Statement st = con.getConnection().createStatement();
+            st.executeUpdate(sql);
+
+            return "true";
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            con.desconectar();
+        }
+
+        return "false";
+
+    }
 }

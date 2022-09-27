@@ -12,5 +12,9 @@ public interface IUsuarioController {
             String correo, Date fecha_nac, Integer celular, String rol);
     
      public String listar(boolean ordenar, String orden);
+     
+    public String modificar(String username, String nuevaPassword,
+            String nuevaCedula, String nuevoNombre, String nuevosApellidos,
+            String nuevoCorreo, Date nuevaFecha_nac, Integer nuevoCelular, String nuevoRol);
     
 }

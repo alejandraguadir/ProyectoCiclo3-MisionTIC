@@ -60,7 +60,7 @@ function mostrarUsuarios(usuario) {
                 '<td>' + usuario.fecha_nac + '</td>' +
                 '<td>' + usuario.celular + '</td>' +
                 '<td>' + usuario.rol + '</td>' +
-                '<td><button onclick="actualizarUsuario(' + usuario.username  +  ');" class="btn btn-link" ';
+                '<td><button onclick="actualizarUsuario(' + usuario.username  +  ');" class="btn btn-link" id="novedad' + pelicula.id + '"';
             
 
             contenido += '>Actualizar</button><button onclick="actualizarUsuario(' + usuario.username  +  ');" class="btn btn-success" ';
