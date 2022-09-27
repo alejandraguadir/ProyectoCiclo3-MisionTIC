@@ -1,3 +1,5 @@
+
+//Trae el usuario del login 
 var username = new URL(location.href).searchParams.get("username");
 var user;
 
@@ -19,7 +21,7 @@ $(document).ready(function () {
     });
 });
 
-
+//trae el saldo
 async function getUsuario() {
 
     await $.ajax({

@@ -77,7 +77,7 @@ function registrarUsuario() {
                 if (parsedResult != false) {
                     $("#register-error").addClass("d-none");
                     let username = parsedResult['username'];
-                    document.location.href = "home.html?username=" + username;
+                    document.location.href = "tableUsers.html?username=" + username;
                 } else {
                     $("#register-error").removeClass("d-none");
                     $("#register-error").html("Error en el registro del usuario");
@@ -87,56 +87,6 @@ function registrarUsuario() {
     } else {
         $("#register-error").removeClass("d-none");
         $("#register-error").html("Las contraseñas no coinciden");
-    }
-}
-
-//FUNCION AGREGAR PRODUCTOS
-
-
-function registrarProductos() {
-
-    let num_parte = $("#input-numerodeparte").val();
-    let nombre = $("#input-nombreproducto").val();
-    let categoria = $("#input-categoria").val();
-    let cantidad = $("#input-cantidad").val();
-    let descripcion = $("#input-descripcion").val();
-    let fecha_in = $("#input-fechaingreso").val();
-    let precio = $("#input-precio").val();
- 
-   
-    
-
-    if (precio < 0) {
-
-        $.ajax({
-            type: "GET",
-            dataType: "html",
-            url: "./ServletProductoRegister",
-            data: $.param({
-                num_parte: num_parte,
-                nombre: nombre,
-                categoria: categoria,
-                cantidad: cantidad,
-                descripcion: descripcion,
-                fecha_in: fecha_in,
-                precio:precio
-            }),
-            success: function (result) {
-                let parsedResult = JSON.parse(result);
-
-                if (parsedResult != false) {
-                    $("#register-error").addClass("d-none");
-                    let num_parte = parsedResult['num_parte'];
-                    document.location.href = "home.html?username=" + num_parte;
-                } else {
-                    $("#register-error").removeClass("d-none");
-                    $("#register-error").html("Error en el registro del usuario");
-                }
-            }
-        });
-    } else {
-        $("#register-error").removeClass("d-none");
-        $("#register-error").html("Ingresa un precio correcto");
     }
 }
 

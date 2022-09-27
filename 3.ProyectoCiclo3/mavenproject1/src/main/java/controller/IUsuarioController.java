@@ -11,4 +11,6 @@ public interface IUsuarioController {
             String cedula, String nombre, String apellidos,
             String correo, Date fecha_nac, Integer celular, String rol);
     
+     public String listar(boolean ordenar, String orden);
+    
 }
