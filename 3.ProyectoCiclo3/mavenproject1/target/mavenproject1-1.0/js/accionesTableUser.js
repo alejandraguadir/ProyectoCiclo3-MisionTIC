@@ -1,5 +1,15 @@
-var username = new URL(location.href).searchParams.get("username");
+(()=>{
+       console.log("pagina de registro"); 
+}
+)();
+
+var username = localStorage.getItem("usuarioactualizar");
 var user;
+
+
+    console.log("pagina de registro");
+
+
 
 $(document).ready(function () {
 
@@ -12,13 +22,24 @@ $(document).ready(function () {
         event.preventDefault();
         modificarUsuario();
     });
+
+    $("#aceptar-eliminar-cuenta-btn").click(function () {
+
+        eliminarCuenta().then(function () {
+            location.href = "index.html";
+        })
+    })
+
+    console.log("aaa*****************");
    
-    
+    console.log(username);
+
+
 });
 
 function modificarUsuario() {
-    
-    
+
+
     let username = $("#input-username").val();
     let password = $("#input-contrasena").val();
     let passwordConfirmacion = $("#input-contrasena-repeat").val();
@@ -30,7 +51,7 @@ function modificarUsuario() {
     let celular = $("#input-celular").val();
     let rol = $("#input-rol").val();
 
-    
+
     $.ajax({
         type: "GET",
         dataType: "html",
@@ -61,4 +82,27 @@ function modificarUsuario() {
         }
     });
 
+}
+
+
+async function eliminarUsuario() {
+
+    await $.ajax({
+        type: "GET",
+        dataType: "html",
+        url: "./ServletUsuarioEliminar",
+        data: $.param({
+            username: username
+        }),
+        success: function (result) {
+
+            if (result != false) {
+
+                console.log("Usuario eliminado")
+
+            } else {
+                console.log("Error eliminando el usuario");
+            }
+        }
+    });
 }

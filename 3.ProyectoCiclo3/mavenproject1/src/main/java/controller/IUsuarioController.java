@@ -1,5 +1,6 @@
 package controller;
 
+import beans.Usuario;
 import java.util.Map;
 import java.sql.Date;
 
@@ -16,5 +17,6 @@ public interface IUsuarioController {
     public String modificar(String username, String nuevaPassword,
             String nuevaCedula, String nuevoNombre, String nuevosApellidos,
             String nuevoCorreo, Date nuevaFecha_nac, Integer nuevoCelular, String nuevoRol);
+     public String traerporUsername(String username) ;
     
 }

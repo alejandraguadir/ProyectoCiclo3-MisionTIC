@@ -42,7 +42,7 @@ public class PruebaServlet extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Prueba</h1>");
-            response.getWriter().append("El id que fue recibido es: " + id + " y el nombre de la pelicula es: " + name);
+            response.getWriter().append("El id que fue recibido es: " + id + " y el nombre del producto: " + name);
             out.println("</body>");
             out.println("</html>");
         }

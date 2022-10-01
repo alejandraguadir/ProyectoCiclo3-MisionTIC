@@ -5,6 +5,8 @@ D:\1. MISION TIC\CICLO 3\ProyectoCiclo3\3.ProyectoCiclo3\mavenproject1\src\main\
 D:\1. MISION TIC\CICLO 3\ProyectoCiclo3\3.ProyectoCiclo3\mavenproject1\src\main\java\beans\Usuario.java
 D:\1. MISION TIC\CICLO 3\ProyectoCiclo3\3.ProyectoCiclo3\mavenproject1\src\main\java\controller\IUsuarioController.java
 D:\1. MISION TIC\CICLO 3\ProyectoCiclo3\3.ProyectoCiclo3\mavenproject1\src\main\java\controller\UsuarioController.java
+D:\1. MISION TIC\CICLO 3\ProyectoCiclo3\3.ProyectoCiclo3\mavenproject1\src\main\java\servlets\ServletProductoListar.java
+D:\1. MISION TIC\CICLO 3\ProyectoCiclo3\3.ProyectoCiclo3\mavenproject1\src\main\java\servlets\ServletUsuarioGet.java
 D:\1. MISION TIC\CICLO 3\ProyectoCiclo3\3.ProyectoCiclo3\mavenproject1\src\main\java\controller\ProductoController.java
 D:\1. MISION TIC\CICLO 3\ProyectoCiclo3\3.ProyectoCiclo3\mavenproject1\src\main\java\servlets\ServletProductoRegister.java
 D:\1. MISION TIC\CICLO 3\ProyectoCiclo3\3.ProyectoCiclo3\mavenproject1\src\main\java\servlets\ServletUsuarioLogin.java
@@ -13,3 +15,4 @@ D:\1. MISION TIC\CICLO 3\ProyectoCiclo3\3.ProyectoCiclo3\mavenproject1\src\main\
 D:\1. MISION TIC\CICLO 3\ProyectoCiclo3\3.ProyectoCiclo3\mavenproject1\src\main\java\servlets\ServletUsuarioRegister.java
 D:\1. MISION TIC\CICLO 3\ProyectoCiclo3\3.ProyectoCiclo3\mavenproject1\src\main\java\test\OperacionesDB.java
 D:\1. MISION TIC\CICLO 3\ProyectoCiclo3\3.ProyectoCiclo3\mavenproject1\src\main\java\servlets\ServletUsuarioListar.java
+D:\1. MISION TIC\CICLO 3\ProyectoCiclo3\3.ProyectoCiclo3\mavenproject1\src\main\java\servlets\ServletUsuarioEliminar.java

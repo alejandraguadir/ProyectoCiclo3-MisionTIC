@@ -44,33 +44,47 @@ function mostrarUsuarios(usuario) {
 
     let contenido = "";
 
-    $.each(usuario, function (index, usuario) {
+    $.each(usuario, function (index, us) {
 
-        usuario = JSON.parse(usuario);
-
-
+        usuariouno = JSON.parse(us);
 
 
-        contenido += '<tr><th scope="row">' + usuario.username + '</th>' +
-                '<td>' + usuario.password + '</td>' +
-                '<td>' + usuario.cedula + '</td>' +
-                '<td>' + usuario.nombre + '</td>' +
-                '<td>' + usuario.apellido + '</td>' +
-                '<td>' + usuario.correo + '</td>' +
-                '<td>' + usuario.fecha_nac + '</td>' +
-                '<td>' + usuario.celular + '</td>' +
-                '<td>' + usuario.rol + '</td>' +
-                '<td><button onclick="actualizarUsuario(' + usuario.username  +  ');" class="btn btn-link" id="novedad' + usuario.id + '"';
-            
 
-            contenido += '>Actualizar</button><button onclick="actualizarUsuario(' + usuario.username  +  ');" class="btn btn-success" ';
-            
 
-            contenido += '>Eliminar</button></td></tr>'
+        contenido += '<tr><th scope="row">' + usuariouno.username + '</th>' +
+                '<td>' + usuariouno.password + '</td>' +
+                '<td>' + usuariouno.cedula + '</td>' +
+                '<td>' + usuariouno.nombre + '</td>' +
+                '<td>' + usuariouno.apellido + '</td>' +
+                '<td>' + usuariouno.correo + '</td>' +
+                '<td>' + usuariouno.fecha_nac + '</td>' +
+                '<td>' + usuariouno.celular + '</td>' +
+                '<td>' + usuariouno.rol + '</td>' +
+                '<td><button class="btn btn-link" id="' + usuariouno["username"] + '"';
+
+        contenido += '>Actualizar</button>  </td></tr>'
+
 
 
     });
     $("#Usuarios-tbody").html(contenido);
+
+    $.each(usuario, function (index, us) {
+
+        usuariouno = JSON.parse(us);
+
+
+        let btn = document.getElementById( usuariouno.username);
+        btn.addEventListener(
+                "click",
+                (event)=>[
+                   iractualizar(event.target.id)
+                ]
+                );
+
+    });
+
+
 }
 
 function ordenarUsuarios() {
@@ -89,4 +103,10 @@ function ordenarUsuarios() {
         $("#icono-ordenar").addClass("fa-sort");
     }
 }
+
+function iractualizar(perm) {
+   localStorage.setItem("usuarioactualizar",perm);
+   window.location=("modificarUsuario.html");
+}
+
 

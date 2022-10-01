@@ -124,10 +124,7 @@ public class UsuarioController implements IUsuarioController {
         return gson.toJson(usuarios);
 
     }
-    
-    
-    
-    
+
     @Override
     public String modificar(String username, String nuevaPassword,
             String nuevaCedula, String nuevoNombre, String nuevosApellidos,
@@ -138,9 +135,8 @@ public class UsuarioController implements IUsuarioController {
         String sql = "Update usuario set password = '" + nuevaPassword
                 + "', cedula = '" + nuevaCedula + "', "
                 + "nombre = '" + nuevoNombre + "', apellido = '"
-                + nuevosApellidos + "', correo = " + nuevoCorreo + "', fecha_nac = '"+ nuevaFecha_nac + "', celular = '"+ nuevoCelular+"', rol'" + nuevoRol;
+                + nuevosApellidos + "', correo = " + nuevoCorreo + "', fecha_nac = '" + nuevaFecha_nac + "', celular = '" + nuevoCelular + "', rol'" + nuevoRol;
 
-        
         try {
 
             Statement st = con.getConnection().createStatement();
@@ -154,6 +150,45 @@ public class UsuarioController implements IUsuarioController {
         }
 
         return "false";
+
+    }
+
+    @Override
+    public String traerporUsername(String username) {
+        Gson gson = new Gson();
+
+        DBConnection con = new DBConnection();
+
+        String sql = " SELECT * FROM usuario WHERE username = '" + username+"'";
+        Usuario usuario = null;
+
+        try {
+
+            Statement st = con.getConnection().createStatement();
+            ResultSet rs = st.executeQuery(sql);
+
+            while (rs.next()) {
+
+                String password = rs.getString("password");
+                String cedula = rs.getString("cedula");
+                String nombre = rs.getString("nombre");
+                String apellidos = rs.getString("apellido");
+                String correo = rs.getString("correo");
+                Date fecha_nac = rs.getDate("fecha_nac");
+                Integer celular = rs.getInt("celular");
+                String rol = rs.getString("rol");
+
+                usuario = new Usuario(username, password, cedula, nombre, apellidos, correo, fecha_nac, celular, rol);
+
+            }
+        } catch (Exception ex) {
+
+            System.out.println(ex.getMessage());
+        } finally {
+            con.desconectar();
+        }
+
+        return gson.toJson(usuario);
 
     }
 }
