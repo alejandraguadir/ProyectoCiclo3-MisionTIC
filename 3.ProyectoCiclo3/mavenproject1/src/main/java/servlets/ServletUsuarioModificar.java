@@ -25,7 +25,7 @@ public class ServletUsuarioModificar extends HttpServlet {
 
     public ServletUsuarioModificar() {
         super();
-        // TODO Auto-generated constructor stub
+
     }
 
     
@@ -35,8 +35,7 @@ public class ServletUsuarioModificar extends HttpServlet {
 		// TODO Auto-generated method stub
 		 UsuarioController usuario = new UsuarioController();
 
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
+
         String cedula = request.getParameter("cedula");
         String nombre = request.getParameter("nombre");
         String apellidos = request.getParameter("apellidos");
@@ -45,7 +44,7 @@ public class ServletUsuarioModificar extends HttpServlet {
         Integer celular = Integer.parseInt(request.getParameter("celular"));
         String rol = request.getParameter("rol");
 
-        String result = usuario.modificar(username, password, cedula, nombre, apellidos, correo, fecha_nac, celular, rol);
+        String result = usuario.modificar(cedula, nombre, apellidos, correo, fecha_nac, celular, rol);
 
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();

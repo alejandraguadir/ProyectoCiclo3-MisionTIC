@@ -14,7 +14,7 @@ public interface IUsuarioController {
     
      public String listar(boolean ordenar, String orden);
      
-    public String modificar(String username, String nuevaPassword,
+    public String modificar(
             String nuevaCedula, String nuevoNombre, String nuevosApellidos,
             String nuevoCorreo, Date nuevaFecha_nac, Integer nuevoCelular, String nuevoRol);
      public String traerporUsername(String username) ;

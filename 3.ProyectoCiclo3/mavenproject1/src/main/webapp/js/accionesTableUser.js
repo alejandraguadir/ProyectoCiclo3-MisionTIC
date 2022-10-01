@@ -1,48 +1,60 @@
-(()=>{
-       console.log("pagina de registro"); 
-}
-)();
-
-var username = localStorage.getItem("usuarioactualizar");
-var user;
-
-
-    console.log("pagina de registro");
-
-
 
 $(document).ready(function () {
 
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip();
-    });
+    const us = localStorage.getItem("usuarioactualizar")
+    document.getElementById("input-username").value = us;
+    getUsuario(us);
 
-    $("#form-modificar").on("submit", function (event) {
+    $("#form-modificar").on("submit", function () {
 
-        event.preventDefault();
+        //event.preventDefault();
         modificarUsuario();
     });
 
-    $("#aceptar-eliminar-cuenta-btn").click(function () {
-
-        eliminarCuenta().then(function () {
-            location.href = "index.html";
-        })
-    })
-
-    console.log("aaa*****************");
-   
-    console.log(username);
-
-
 });
+
+
+
+function getUsuario(username) {
+
+    $.ajax({
+        type: "GET",
+        dataType: "html",
+        url: "./ServletUsuarioGet",
+        data: $.param({
+            username: username,
+
+        }),
+        success: function (result) {
+            let parsedResult = JSON.parse(result);
+
+            if (parsedResult != null) {
+                setValores(parsedResult)
+            } else {
+                console.log("Error recuperando los datos de usuarios");
+            }
+        }
+    });
+}
+function setValores(usuario) {
+
+    document.getElementById("input-contrasena").value = usuario.password;
+    document.getElementById("input-cedula").value = usuario.cedula;
+    document.getElementById("input-nombre").value = usuario.nombre;
+    document.getElementById("input-apellidos").value = usuario.apellidos;
+    document.getElementById("input-email").value = usuario.correo;
+    document.getElementById("input-fecha_nac").value = usuario.fecha_nac;
+    document.getElementById("input-celular").value = usuario.celular;
+    document.getElementById("input-rol").value = usuario.rol;
+}
+
+
 
 function modificarUsuario() {
 
 
     let username = $("#input-username").val();
     let password = $("#input-contrasena").val();
-    let passwordConfirmacion = $("#input-contrasena-repeat").val();
     let cedula = $("#input-cedula").val();
     let nombre = $("#input-nombre").val();
     let apellidos = $("#input-apellidos").val();
@@ -61,15 +73,18 @@ function modificarUsuario() {
             contrasena: password,
             nombre: nombre,
             apellidos: apellidos,
-            email: email,
-            saldo: saldo,
-            premium: premium,
+            correo: correo,
+            fecha_nac: fecha_nac,
+            celular: celular,
+            rol:rol
+            
         }),
         success: function (result) {
 
             if (result != false) {
                 $("#modificar-error").addClass("d-none");
                 $("#modificar-exito").removeClass("d-none");
+                document.location.href = "tableUsers.html?username=" + username;
             } else {
                 $("#modificar-error").removeClass("d-none");
                 $("#modificar-exito").addClass("d-none");

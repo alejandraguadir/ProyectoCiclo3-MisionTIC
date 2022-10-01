@@ -126,14 +126,13 @@ public class UsuarioController implements IUsuarioController {
     }
 
     @Override
-    public String modificar(String username, String nuevaPassword,
+    public String modificar(
             String nuevaCedula, String nuevoNombre, String nuevosApellidos,
             String nuevoCorreo, Date nuevaFecha_nac, Integer nuevoCelular, String nuevoRol) {
 
         DBConnection con = new DBConnection();
 
-        String sql = "Update usuario set password = '" + nuevaPassword
-                + "', cedula = '" + nuevaCedula + "', "
+        String sql = "Update usuario set  cedula = '" + nuevaCedula + "', "
                 + "nombre = '" + nuevoNombre + "', apellido = '"
                 + nuevosApellidos + "', correo = " + nuevoCorreo + "', fecha_nac = '" + nuevaFecha_nac + "', celular = '" + nuevoCelular + "', rol'" + nuevoRol;
 

@@ -15,6 +15,8 @@
 
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        
+        <script src="js/accionesTableUser.js"></script>
 
 
 
@@ -150,42 +152,5 @@
         </main>
 
     </body>
-    <script >
-        const us = localStorage.getItem("usuarioactualizar")
-        document.getElementById("input-username").value = us;
-        getUsuario(us);
-
-        function getUsuario(username) {
-
-            $.ajax({
-                type: "GET",
-                dataType: "html",
-                url: "./ServletUsuarioGet",
-                data: $.param({
-                    username: username,
-
-                }),
-                success: function (result) {
-                    let parsedResult = JSON.parse(result);
-
-                    if (parsedResult != null) {
-                        setValores(parsedResult)
-                    } else {
-                        console.log("Error recuperando los datos de usuarios");
-                    }
-                }
-            });
-        }
-        function setValores(usuario) {
-
-            document.getElementById("input-contrasena").value = usuario.password;
-            document.getElementById("input-cedula").value = usuario.cedula;
-            document.getElementById("input-nombre").value = usuario.nombre;
-            document.getElementById("input-apellidos").value = usuario.apellidos;
-            document.getElementById("input-email").value = usuario.correo;
-            document.getElementById("input-fecha_nac").value = usuario.fecha_nac;
-            document.getElementById("input-celular").value = usuario.celular;
-            document.getElementById("input-rol").value = usuario.rol;
-        }
-    </script>
+ 
 </html>
