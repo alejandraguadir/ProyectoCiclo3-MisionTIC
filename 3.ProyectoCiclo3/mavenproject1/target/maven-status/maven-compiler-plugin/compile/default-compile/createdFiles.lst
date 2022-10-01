@@ -3,13 +3,16 @@ servlets\ServletUsuarioListar.class
 controller\IProductoController.class
 controller\IUsuarioController.class
 servlets\PruebaServlet.class
+servlets\ServletProductoListar.class
+servlets\ServletUsuarioGet.class
 servlets\ServletUsuarioRegister.class
 test\OperacionesDB.class
 beans\Usuario.class
 controller\UsuarioController.class
+servlets\ServletUsuarioModificar.class
 servlets\ServletProductoRegister.class
+servlets\ServletUsuarioEliminar.class
 beans\Producto.class
-servlets\ServletProductosListar.class
 servlets\ServletUsuarioLogin.class
 connection\DBConnection.class
 controller\ProductoController.class

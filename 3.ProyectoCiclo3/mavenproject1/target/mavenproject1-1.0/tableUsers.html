@@ -14,8 +14,15 @@
 
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <script src="js/index.js"></script>
-         <script src="js/main.js"></script>
+
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+              integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+              crossorigin="anonymous" />
+        
+       
+        <script src="js/main.js"></script>
+
         <link href="css/menu.css" rel="stylesheet">
         <title>tableUsers</title>
     </head>
@@ -49,53 +56,59 @@
 
             </div>
         </nav>
-        <div>
-            <div class="card text-center">
-                <div class="card-header">
-                    <ul class="nav nav-tabs card-header-tabs">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="true" href="#">Usuarios</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="#">Administradores</a>
-                        </li>
-                        <li class="nav-item">
+
+        <div class="card text-center">
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="true" href="#">Usuarios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="#">Administradores</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link " aria-current="true" href="#">Empleados</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Lista de usuarios</h5>
-                    <p class="card-text">Agrega usuarios haciendo click en el siguiente enlace.</p>
-                    <a href="addUsers.html" class="btn btn-primary">Agregar usuarios</a>
-                </div>
-                
-                <main class="p-4 d-flex justify-content-center">
-
-            <table class="table">
-
-                <thead class="table-dark">
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Apellido</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Correo</th>
-                        <th scope="col">Cedula</th>
-                        <th scope="col">Rol</th>
-                        <th scope="col">Fecha-N</th>
-                        <th scope="col">celular</th>
-                        <th scope="col">Acción</th>
-                    </tr>
-                </thead>
-                <tbody id="Usuarios-tbody">
-
-                </tbody>
-                
-            </table>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Lista de usuarios</h5>
+                <p class="card-text">Agrega usuarios haciendo click en el siguiente enlace.</p>
+                <a href="addUsers.html" class="btn btn-primary">Agregar usuarios</a>
+            </div>
 
 
-        </main>
+            <main class="p-4 d-flex justify-content-center">
 
-        
+                <table class="table">
+
+                    <thead class="table-dark">
+                        <tr>
+                            <th scope="col">Username</th>
+                            <th scope="col">Password</th>
+                            <th scope="col">Cedula</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Apellido</th>
+                            <th scope="col">Correo</th>
+                            <th scope="col">Fecha_N</th>
+                            <th scope="col">Celular</th>
+                            <th scope="col" id="ordenar-rol" data-toogle="tooltip" 
+                                data-placement="top" title="Ordenar por género">Rol
+                                <span class="fas fa-sort" id="icono-ordenar"></span></th>
+
+                            <th scope="col">Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody id="Usuarios-tbody">
+
+                    </tbody>
+
+                </table>
+
+
+            </main>
+        </div>
+
+
     </body>
 </html>

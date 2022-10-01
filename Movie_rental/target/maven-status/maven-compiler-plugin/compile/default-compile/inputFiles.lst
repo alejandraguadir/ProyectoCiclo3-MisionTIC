@@ -1,3 +1,4 @@
+D:\1. MISION TIC\CICLO 3\ProyectoCiclo3\Movie_rental\src\main\java\servlets\ServletUsuarioModificar.java
 D:\1. MISION TIC\CICLO 3\ProyectoCiclo3\Movie_rental\src\main\java\test\OperacionesDB.java
 D:\1. MISION TIC\CICLO 3\ProyectoCiclo3\Movie_rental\src\main\java\servlets\ServletUsuarioRegister.java
 D:\1. MISION TIC\CICLO 3\ProyectoCiclo3\Movie_rental\src\main\java\beans\Alquiler.java
@@ -6,9 +7,12 @@ D:\1. MISION TIC\CICLO 3\ProyectoCiclo3\Movie_rental\src\main\java\beans\Usuario
 D:\1. MISION TIC\CICLO 3\ProyectoCiclo3\Movie_rental\src\main\java\servlets\ServletUsuarioPedir.java
 D:\1. MISION TIC\CICLO 3\ProyectoCiclo3\Movie_rental\src\main\java\beans\Pelicula.java
 D:\1. MISION TIC\CICLO 3\ProyectoCiclo3\Movie_rental\src\main\java\servlets\ServletUsuarioLogin.java
+D:\1. MISION TIC\CICLO 3\ProyectoCiclo3\Movie_rental\src\main\java\servlets\ServletAlquilerListar.java
 D:\1. MISION TIC\CICLO 3\ProyectoCiclo3\Movie_rental\src\main\java\servlets\ServletPeliculaListar.java
+D:\1. MISION TIC\CICLO 3\ProyectoCiclo3\Movie_rental\src\main\java\servlets\ServletPeliculaDevolver.java
 D:\1. MISION TIC\CICLO 3\ProyectoCiclo3\Movie_rental\src\main\java\controller\IUsuarioController.java
 D:\1. MISION TIC\CICLO 3\ProyectoCiclo3\Movie_rental\src\main\java\controller\UsuarioController.java
+D:\1. MISION TIC\CICLO 3\ProyectoCiclo3\Movie_rental\src\main\java\servlets\ServletUsuarioEliminar.java
 D:\1. MISION TIC\CICLO 3\ProyectoCiclo3\Movie_rental\src\main\java\controller\PeliculaController.java
 D:\1. MISION TIC\CICLO 3\ProyectoCiclo3\Movie_rental\src\main\java\controller\IPeliculaController.java
 D:\1. MISION TIC\CICLO 3\ProyectoCiclo3\Movie_rental\src\main\java\servlets\PruebaServelt.java

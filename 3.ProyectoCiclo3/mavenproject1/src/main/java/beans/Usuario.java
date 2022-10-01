@@ -65,7 +65,7 @@ public class Usuario {
     }
 
     public void setApellidos(String apellido) {
-        this.apellidos = apellidos;
+        this.apellidos = apellido;
     }
 
     public String getCorreo() {
