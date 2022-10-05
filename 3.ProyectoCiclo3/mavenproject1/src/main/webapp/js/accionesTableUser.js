@@ -5,11 +5,9 @@ $(document).ready(function () {
     document.getElementById("input-username").value = us;
     getUsuario(us);
 
-    $("#form-modificar").on("submit", function () {
-
-        //event.preventDefault();
-        modificarUsuario();
-    });
+   
+    
+    
 
 });
 
@@ -41,17 +39,17 @@ function setValores(usuario) {
     document.getElementById("input-contrasena").value = usuario.password;
     document.getElementById("input-cedula").value = usuario.cedula;
     document.getElementById("input-nombre").value = usuario.nombre;
-    document.getElementById("input-apellidos").value = usuario.apellidos;
+    document.getElementById("input-apellidos").value = usuario.apellido;
     document.getElementById("input-email").value = usuario.correo;
-    document.getElementById("input-fecha_nac").value = usuario.fecha_nac;
+   // document.getElementById("input-fecha_nac").value = usuario.fecha_nac;
+    //console.log(new Date(usuario.fecha_nac));
     document.getElementById("input-celular").value = usuario.celular;
     document.getElementById("input-rol").value = usuario.rol;
 }
 
 
-
 function modificarUsuario() {
-
+    //alert("prueba")
 
     let username = $("#input-username").val();
     let password = $("#input-contrasena").val();
@@ -59,10 +57,11 @@ function modificarUsuario() {
     let nombre = $("#input-nombre").val();
     let apellidos = $("#input-apellidos").val();
     let correo = $("#input-email").val();
-    let fecha_nac = $("#input-fecha_nac").val();
+    //let fecha_nac = $("#input-fecha_nac").val();
     let celular = $("#input-celular").val();
     let rol = $("#input-rol").val();
 
+//alert(apellidos)
 
     $.ajax({
         type: "GET",
@@ -70,11 +69,11 @@ function modificarUsuario() {
         url: "./ServletUsuarioModificar",
         data: $.param({
             username: username,
-            contrasena: password,
+            
             nombre: nombre,
             apellidos: apellidos,
             correo: correo,
-            fecha_nac: fecha_nac,
+            //fecha_nac: fecha_nac,
             celular: celular,
             rol:rol
             
@@ -84,7 +83,7 @@ function modificarUsuario() {
             if (result != false) {
                 $("#modificar-error").addClass("d-none");
                 $("#modificar-exito").removeClass("d-none");
-                document.location.href = "tableUsers.html?username=" + username;
+                 document.location.href = "tableUsers.html" ;
             } else {
                 $("#modificar-error").removeClass("d-none");
                 $("#modificar-exito").addClass("d-none");
@@ -101,6 +100,8 @@ function modificarUsuario() {
 
 
 async function eliminarUsuario() {
+    
+    let username = $("#input-username").val();
 
     await $.ajax({
         type: "GET",
@@ -114,6 +115,7 @@ async function eliminarUsuario() {
             if (result != false) {
 
                 console.log("Usuario eliminado")
+                document.location.href = "tableUsers.html" ;
 
             } else {
                 console.log("Error eliminando el usuario");

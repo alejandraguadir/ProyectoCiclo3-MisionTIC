@@ -8,7 +8,7 @@ public class Usuario {
     private String password;
     private String cedula;
     private String nombre;
-    private String apellidos;
+    private String apellido;
     private String correo;
     private Date fecha_nac;
     private int celular;
@@ -16,12 +16,12 @@ public class Usuario {
 
     //Constructor
 
-    public Usuario(String username, String password, String cedula, String nombre, String apellidos, String correo, Date fecha_nac, int celular, String rol) {
+    public Usuario(String username, String password, String cedula, String nombre, String apellido, String correo, Date fecha_nac, int celular, String rol) {
         this.username = username;
         this.password = password;
         this.cedula = cedula;
         this.nombre = nombre;
-        this.apellidos = apellidos;
+        this.apellido = apellido;
         this.correo = correo;
         this.fecha_nac = fecha_nac;
         this.celular = celular;
@@ -61,11 +61,11 @@ public class Usuario {
     }
 
     public String getApellidos() {
-        return apellidos;
+        return apellido;
     }
 
     public void setApellidos(String apellido) {
-        this.apellidos = apellido;
+        this.apellido = apellido;
     }
 
     public String getCorreo() {
@@ -102,7 +102,7 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Usuario{" + "username=" + username + ", password=" + password + ", cedula=" + cedula + ", nombre=" + nombre + ", apellidos=" + apellidos + ", correo=" + correo + ", fecha_nac=" + fecha_nac + ", celular=" + celular + ", rol=" + rol + '}';
+        return "Usuario{" + "username=" + username + ", password=" + password + ", cedula=" + cedula + ", nombre=" + nombre + ", apellidos=" + apellido + ", correo=" + correo + ", fecha_nac=" + fecha_nac + ", celular=" + celular + ", rol=" + rol + '}';
     }
     
 }

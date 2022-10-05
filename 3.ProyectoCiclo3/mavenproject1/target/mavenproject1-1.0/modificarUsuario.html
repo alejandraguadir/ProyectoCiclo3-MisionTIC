@@ -17,6 +17,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         
         <script src="js/accionesTableUser.js"></script>
+        
 
 
 
@@ -84,15 +85,13 @@
                             <label for="input-apellidos">Apellidos</label>
                             <input type="text" class="form-control" id="input-apellidos" placeholder="Apellidos" required>
                         </div>
+                         
 
                         <div class="form-group">
                             <label for="input-email">Email</label>
                             <input type="text" class="form-control" id="input-email" placeholder="Email" required>
                         </div>
-                        <div class="form-group">
-                            <label for="input-fecha_nac">Fecha de nacimiento</label>
-                            <input type="date" class="form-control" id="input-fecha_nac" placeholder="dd/mm/aaaa" required>
-                        </div>
+                        
                         <div class="form-group">
                             <label for="input-celular">Numero de Celular</label>
                             <input type="number" class="form-control" id="input-celular" placeholder="# Celular" required>
@@ -107,7 +106,7 @@
                         </div>
 
                      
-                        <button type="submit" class="btn btn-success" id="modificar-btn">Guardar datos</button>
+                        <button type="submit" class="btn btn-success" id="modificar-btn" onclick="modificarUsuario()">Guardar datos</button>
                         <a href="tableUsers.html" class="btn btn-primary">Ver registro</a>
                     </form>
                     <div class="alert alert-danger d-none" id="modificar-error" role="alert">
@@ -123,7 +122,7 @@
 
             <div class="mt-4">
 
-                <button class="btn btn-danger" id="eliminar-cuenta-btn" data-toggle="modal" 
+                <button class="btn btn-danger" id="eliminar-cuenta-btn"  data-toggle="modal" 
                         data-target="#eliminar-cuenta-modal">Eliminar cuenta</button>
             </div>
             <div class="modal fade" id="eliminar-cuenta-modal" tabindex="-1" role="dialog" 
@@ -143,7 +142,7 @@
                             <button type="button" class="btn btn-secondary" 
                                     data-dismiss="modal">Cancelar</button>
                             <button type="button" class="btn btn-danger" 
-                                    id="aceptar-eliminar-cuenta-btn">Eliminar cuenta</button>
+                                    id="aceptar-eliminar-cuenta-btn" onclick="eliminarUsuario()" >Eliminar cuenta</button>
                         </div>
                     </div>
                 </div>
