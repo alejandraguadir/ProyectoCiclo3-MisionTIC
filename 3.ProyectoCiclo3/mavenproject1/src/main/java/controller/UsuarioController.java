@@ -7,6 +7,7 @@ import com.google.gson.Gson;
 import beans.Usuario;
 import connection.DBConnection;
 import java.sql.Date;
+import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -126,16 +127,18 @@ public class UsuarioController implements IUsuarioController {
     }
 
     @Override
-    public String modificar(String username, String nuevaPassword,
-            String nuevaCedula, String nuevoNombre, String nuevosApellidos,
-            String nuevoCorreo, Date nuevaFecha_nac, Integer nuevoCelular, String nuevoRol) {
+    public String modificar(
+            String cedula, String nombre, String apellidos,
+            String correo, Integer celular, String rol, String username) {
+        
+        Gson gson = new Gson();
 
         DBConnection con = new DBConnection();
 
-        String sql = "Update usuario set password = '" + nuevaPassword
-                + "', cedula = '" + nuevaCedula + "', "
-                + "nombre = '" + nuevoNombre + "', apellido = '"
-                + nuevosApellidos + "', correo = " + nuevoCorreo + "', fecha_nac = '" + nuevaFecha_nac + "', celular = '" + nuevoCelular + "', rol'" + nuevoRol;
+        String sql = "Update  usuario set cedula = '" + cedula + "', "
+                + "nombre = '" + nombre + "', apellido = '"
+                + apellidos + "', correo = '" + correo  + "', celular = " + celular + ", rol='" + rol  + 
+                "' WHERE  username = '" + username + "'";
 
         try {
 
@@ -189,6 +192,39 @@ public class UsuarioController implements IUsuarioController {
         }
 
         return gson.toJson(usuario);
+
+    }
+    
+    
+    
+    
+    @Override
+    public String eliminar(String username) {
+        
+
+        DBConnection con = new DBConnection();
+        
+
+
+        String sql = "DELETE FROM usuario WHERE username ='"+username+"'";
+        
+
+        try {
+
+           Statement st = con.getConnection().createStatement();
+            st.executeUpdate(sql);
+            
+            return "true";
+
+            
+        } catch (Exception ex) {
+
+            System.out.println(ex.getMessage());
+        } finally {
+            con.desconectar();
+        }
+
+        return "false";
 
     }
 }

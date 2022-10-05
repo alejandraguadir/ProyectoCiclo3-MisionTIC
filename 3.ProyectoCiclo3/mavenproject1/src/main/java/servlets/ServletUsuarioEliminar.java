@@ -4,6 +4,7 @@
  */
 package servlets;
 
+import controller.UsuarioController;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -16,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Yolima Alejandra
  */
-@WebServlet(name = "ServletUsuarioEliminar")
+@WebServlet("/ServletUsuarioEliminar")
 public class ServletUsuarioEliminar extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -25,6 +26,36 @@ public class ServletUsuarioEliminar extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
+    
+     protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+            throws ServletException, IOException {
+        
+
+        UsuarioController usuario = new UsuarioController();
+
+        String username = request.getParameter("username");
+        System.out.println("prueba eliminar "+username);
+        String result = usuario.eliminar(username);
+
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
+        out.println(result);
+        out.flush();
+        out.close();
+        
+    }
+
+    /**
+     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+     * response)
+     */
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+            throws ServletException, IOException {
+        // TODO Auto-generated method stub
+        doGet(request, response);
+    }
+    
+    
 
 
 }
