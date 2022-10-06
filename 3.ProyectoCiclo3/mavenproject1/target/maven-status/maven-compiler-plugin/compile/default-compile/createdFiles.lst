@@ -7,6 +7,7 @@ servlets\ServletProductoListar.class
 servlets\ServletUsuarioGet.class
 servlets\ServletUsuarioRegister.class
 test\OperacionesDB.class
+servlets\ServletProductoGet.class
 beans\Usuario.class
 controller\UsuarioController.class
 servlets\ServletUsuarioModificar.class

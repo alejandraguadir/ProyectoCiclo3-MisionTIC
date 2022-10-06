@@ -39,43 +39,49 @@ function getProductos(ordenar, orden) {
         }
     });
 }
-function mostrarProductos(productos) {
+function mostrarProductos(producto) {
 
     let contenido = " ";
     
     //console.log(productos);
-    $.each(productos, function (index, producto) {
+    $.each(producto, function (index, prod) {
 
-        producto = JSON.parse(producto);
+        productouno = JSON.parse(prod);
         console.log(producto);
 
 
 
 
-        contenido += '<tr><th scope="row">' + producto.num_parte + '</th>' +
-                '<td>' + producto.nombre + '</td>' +
-                '<td>' + producto.categoria + '</td>' +
-                '<td>' + producto.cantidad + '</td>' +
-                '<td>' + producto.descripcion + '</td>' +
-                '<td>' + producto.fecha_in + '</td>' +
-                '<td>' + producto.precio + '</td>' +
-                //'<td><button onclick="abrirpagina()"(' + usuario.username + ' );" class="btn btn-link" id="novedad' + usuario["username"] + '"';
+        contenido += '<tr><th scope="row">' + productouno.num_parte + '</th>' +
+                '<td>' + productouno.nombre + '</td>' +
+                '<td>' + productouno.categoria + '</td>' +
+                '<td>' + productouno.cantidad + '</td>' +
+                '<td>' + productouno.descripcion + '</td>' +
+                '<td>' + productouno.fecha_in + '</td>' +
+                '<td>' + productouno.precio + '</td>' +
+                 '<td><button class="btn btn-link" id="' + productouno["num_parte"] + '"';
 
-                //contenido += '>Actualizar</button><button onclick="actualizarUsuario(' + usuario.username + ');" class="btn btn-success" ';
-
-
-                // contenido += '>Eliminar</button>\n\
-                '</td></tr>';
+        contenido += '>Actualizar</button>  </td></tr>'
 
 
 
     });
     $("#Productos-tbody").html(contenido);
 
-    // $.each(usuario, function (index, usuario) {
-    //    console.log(document.getElementById("novedad" + usuario.username))
-    //});
-    //console.log(producto);
+    $.each(producto, function (index, prod) {
+
+        productouno = JSON.parse(prod);
+
+
+        let btn = document.getElementById( productouno.num_parte);
+        btn.addEventListener(
+                "click",
+                (event)=>[
+                   iractualizar(event.target.id)
+                ]
+                );
+
+    });
 }
 
 function ordenarProductos() {
@@ -95,3 +101,7 @@ function ordenarProductos() {
     }
 }
 
+function iractualizar(perm) {
+   localStorage.setItem("productoactualizar",perm);
+   window.location=("modificarProducto.html");
+}

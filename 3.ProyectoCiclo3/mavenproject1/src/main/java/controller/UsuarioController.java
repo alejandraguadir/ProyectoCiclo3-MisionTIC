@@ -135,9 +135,10 @@ public class UsuarioController implements IUsuarioController {
 
         DBConnection con = new DBConnection();
 
-        String sql = "Update  usuario set cedula = '" + cedula + "', "
-                + "nombre = '" + nombre + "', apellido = '"
-                + apellidos + "', correo = '" + correo  + "', celular = " + celular + ", rol='" + rol  + 
+       
+        
+        String sql = "UPDATE  usuario set cedula = '" + cedula + "', nombre = '" + nombre + "', apellido = '"
+                + apellidos + "', correo = '" + correo  + "', celular = '" + celular + "', rol = '" + rol  + 
                 "' WHERE  username = '" + username + "'";
 
         try {
