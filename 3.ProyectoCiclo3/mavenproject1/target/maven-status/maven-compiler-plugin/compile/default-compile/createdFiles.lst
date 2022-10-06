@@ -1,4 +1,5 @@
 beans\HistorialActividad.class
+servlets\ServletProductoModificar.class
 servlets\ServletUsuarioListar.class
 controller\IProductoController.class
 controller\IUsuarioController.class
@@ -9,6 +10,7 @@ servlets\ServletUsuarioRegister.class
 test\OperacionesDB.class
 servlets\ServletProductoGet.class
 beans\Usuario.class
+servlets\ServletProductosEliminar.class
 controller\UsuarioController.class
 servlets\ServletUsuarioModificar.class
 servlets\ServletProductoRegister.class

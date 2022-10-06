@@ -124,6 +124,65 @@ public class ProductoController implements IProductoController {
     }
     
     
+    @Override
+    public String modificar(String nombre, int cantidad,
+            String descripcion, double precio, String num_parte) {
+
+        Gson gson = new Gson();
+
+        DBConnection con = new DBConnection(); //
+
+        String sql = "UPDATE  Producto SET nombre = '" + nombre + "', cantidad = '"
+                + cantidad + "', descripcion = '" + descripcion + "', precio = '" + precio
+                + "' WHERE  num_parte = '" + num_parte + "'";
+
+        try {
+
+            Statement st = con.getConnection().createStatement();
+            st.executeUpdate(sql);
+
+            return "true";
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            con.desconectar();
+        }
+
+        return "false";
+    }
+
+    
+           @Override
+    public String eliminarP(String num_parte) {
+        
+
+        DBConnection con = new DBConnection();
+        
+
+
+        String sql = "DELETE FROM producto WHERE num_parte = '" + num_parte + "'";
+        
+
+        try {
+
+           Statement st = con.getConnection().createStatement();
+            st.executeUpdate(sql);
+            
+            return "true";
+
+            
+        } catch (Exception ex) {
+
+            System.out.println(ex.getMessage());
+        } finally {
+            con.desconectar();
+        }
+
+        return "false";
+
+    }
+    
+    
     
 
 }

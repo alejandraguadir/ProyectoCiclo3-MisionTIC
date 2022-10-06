@@ -41,19 +41,14 @@ function setValores(producto) {
    
 }
 
-//adaptar a productos
-function modificarUsuario() {
+function modificarProducto() {
     //alert("prueba")
 
-    let username = $("#input-username").val();
-    let password = $("#input-contrasena").val();
-    let cedula = $("#input-cedula").val();
-    let nombre = $("#input-nombre").val();
-    let apellidos = $("#input-apellidos").val();
-    let correo = $("#input-email").val();
-    //let fecha_nac = $("#input-fecha_nac").val();
-    let celular = $("#input-celular").val();
-    let rol = $("#input-rol").val();
+    let num_parte = $("#input-numerodeparte").val();
+    let nombre = $("#input-nombreproducto").val();
+    let cantidad = $("#input-cantidad").val();
+    let descripcion = $("#input-descripcion").val();
+    let precio = $("#input-precio").val();
 
 //alert(apellidos)
 
@@ -62,13 +57,11 @@ function modificarUsuario() {
         dataType: "html",
         url: "./ServletProductoModificar",
         data: $.param({
-            username: username,            
+            num_parte: num_parte,            
             nombre: nombre,
-            apellidos: apellidos,
-            correo: correo,
-            //fecha_nac: fecha_nac,
-            celular: celular,
-            rol:rol
+            cantidad: cantidad,
+            descripcion: descripcion,
+            precio:precio
             
         }),
         success: function (result) {
@@ -76,7 +69,7 @@ function modificarUsuario() {
             if (result != false) {
                 $("#modificar-error").addClass("d-none");
                 $("#modificar-exito").removeClass("d-none");
-                 document.location.href = "tableUsers.html" ;
+                 document.location.href = "tableProductos.html" ;
             } else {
                 $("#modificar-error").removeClass("d-none");
                 $("#modificar-exito").addClass("d-none");
@@ -92,26 +85,26 @@ function modificarUsuario() {
 }
 
 //adaptar a productos
-async function eliminarUsuario() {
+async function eliminarProductos() {
     
-    let username = $("#input-username").val();
+    let num_parte = $("#input-numerodeparte").val();
 
     await $.ajax({
         type: "GET",
         dataType: "html",
         url: "./ServletProductosEliminar",
         data: $.param({
-            username: username
+            num_parte: num_parte
         }),
         success: function (result) {
 
             if (result != false) {
 
-                console.log("Usuario eliminado")
-                document.location.href = "tableUsers.html" ;
+                console.log("Producto eliminado")
+                document.location.href = "tableProductos.html" ;
 
             } else {
-                console.log("Error eliminando el usuario");
+                console.log("Error eliminando el producto");
             }
         }
     });
