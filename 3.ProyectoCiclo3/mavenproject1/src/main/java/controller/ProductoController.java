@@ -84,5 +84,105 @@ public class ProductoController implements IProductoController {
         return gson.toJson(productos);
 
     }
+    
+    
+     @Override
+    public String traerProducto(String num_parte) {
+        Gson gson = new Gson();
+
+        DBConnection con = new DBConnection();
+
+        String sql = " SELECT * FROM producto WHERE num_parte = '" + num_parte +"'";
+        Producto producto = null;
+
+        try {
+
+            Statement st = con.getConnection().createStatement();
+            ResultSet rs = st.executeQuery(sql);
+
+            while (rs.next()) {
+
+                String nombre = rs.getString("nombre");
+                String categoria = rs.getString("categoria");
+                int cantidad = rs.getInt("cantidad");
+                String descripcion = rs.getString("descripcion");
+                Date fecha_in = rs.getDate("fecha_in");
+                double precio = rs.getDouble("precio");
+
+                producto = new Producto(num_parte, nombre, categoria, cantidad, descripcion, fecha_in, precio);
+
+            }
+        } catch (Exception ex) {
+
+            System.out.println(ex.getMessage());
+        } finally {
+            con.desconectar();
+        }
+
+        return gson.toJson(producto);
+
+    }
+    
+    
+    @Override
+    public String modificar(String nombre, int cantidad,
+            String descripcion, double precio, String num_parte) {
+
+        Gson gson = new Gson();
+
+        DBConnection con = new DBConnection(); //
+
+        String sql = "UPDATE  Producto SET nombre = '" + nombre + "', cantidad = '"
+                + cantidad + "', descripcion = '" + descripcion + "', precio = '" + precio
+                + "' WHERE  num_parte = '" + num_parte + "'";
+
+        try {
+
+            Statement st = con.getConnection().createStatement();
+            st.executeUpdate(sql);
+
+            return "true";
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            con.desconectar();
+        }
+
+        return "false";
+    }
+
+    
+           @Override
+    public String eliminarP(String num_parte) {
+        
+
+        DBConnection con = new DBConnection();
+        
+
+
+        String sql = "DELETE FROM producto WHERE num_parte = '" + num_parte + "'";
+        
+
+        try {
+
+           Statement st = con.getConnection().createStatement();
+            st.executeUpdate(sql);
+            
+            return "true";
+
+            
+        } catch (Exception ex) {
+
+            System.out.println(ex.getMessage());
+        } finally {
+            con.desconectar();
+        }
+
+        return "false";
+
+    }
+    
+    
+    
 
 }

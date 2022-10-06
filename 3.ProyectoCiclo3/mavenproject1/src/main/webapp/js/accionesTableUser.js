@@ -68,8 +68,7 @@ function modificarUsuario() {
         dataType: "html",
         url: "./ServletUsuarioModificar",
         data: $.param({
-            username: username,
-            
+            username: username,            
             nombre: nombre,
             apellidos: apellidos,
             correo: correo,
